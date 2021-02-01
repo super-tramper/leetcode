@@ -10,6 +10,7 @@ class Solution:
             if j in b:
                 ans.append(i)
                 ans.append(j)
+                break
         return ans
 
 
