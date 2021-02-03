@@ -1,4 +1,15 @@
 # 1 9*9 1*1 3*7
+from collections import defaultdict
+
+
+def findCommonTail():
+    ret_dict = defaultdict(list)
+    for i in range(1, 10):
+        for j in range(i, 10):
+            ret_dict[int(str(i*j)[-1])].append((i, j))
+    return ret_dict
+
+
 def curiosNum():
     ans = []
     for i in range(10, 100):
@@ -12,6 +23,7 @@ def curiosNum():
 
 
 if __name__ == '__main__':
-    ans = curiosNum()
-    for i in ans:
-        print(i)
+    # ans = curiosNum()
+    # for i in ans:
+    #     print(i)
+    print(findCommonTail())
