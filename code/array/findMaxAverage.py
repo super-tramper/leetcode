@@ -11,7 +11,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    nums = [3,3,4,3,0]
+    nums = [3, 3, 4, 3, 0]
     k = 3
     solution = Solution()
     print(solution.findMaxAverage(nums, k))
