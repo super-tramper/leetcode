@@ -1,5 +1,6 @@
 def generic_dict():
-    code_dict = {chr(i): (i - 7) % 9 + 1for i in range(97, 123)}
+    # 根据题意产生字母对应的数字的字典
+    code_dict = {chr(i): (i - 7) % 9 + 1 for i in range(97, 123)}
     print(code_dict)
 
 
