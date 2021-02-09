@@ -1,17 +1,26 @@
 class Solution:
     def subarraysWithKDistinct(self, A, K: int) -> int:
-        n = len(A)
-        ans = []
-        # 分别测试长度为i的子数组
-        for i in range(K, n+1):
-            # 从位置j开始遍历
-            for j in range(n - i + 1):
-                if len(set(A[j:j + i])) > K:
-                    continue
-                elif len(set(A[j:j + i])) == K:
-                    ans.append(A[j:j + i])
-        # print(ans)
-        return len(ans)
+        return self.atMostwithKDistinct(A, K) - self.atMostwithKDistinct(A, K - 1)
+
+    def atMostwithKDistinct(self, A, K):
+        l, r = 0, 0
+        n, ans = len(A), 0
+        freq = [0] * (n + 1)
+        count = 0
+        while r < n:
+            if freq[A[r]] == 0:
+                count += 1
+            freq[A[r]] += 1
+            r += 1
+
+            while count > K:
+                freq[A[l]] -= 1
+                if freq[A[l]] == 0:
+                    count -= 1
+                l += 1
+
+            ans += r - l
+        return ans
 
 
 if __name__ == '__main__':
