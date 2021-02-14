@@ -4,11 +4,11 @@ from collections import defaultdict
 
 class Solution:
     def minSwapsCouples(self, row: List[int]) -> int:
-        n = len(row)//2
+        n = len(row) // 2
         parents = list(range(n))
         # 将位置相邻的两个元素合并到一个集合中
         for x in range(n):
-            self.unionNodes(row[x*2]//2, row[x*2+1]//2, parents)
+            self.unionNodes(row[x * 2] // 2, row[x * 2 + 1] // 2, parents)
         # 记录连通分量个数
         count_dict = defaultdict(int)
         ans = 0
