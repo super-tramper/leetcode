@@ -7,13 +7,13 @@ class Solution:
         differs = [0] * (n + 1)
         ans, revCnt = 0, 0
         for i in range(n):
-            revCnt += differs[i]
-            if (A[i] + revCnt) % 2 == 0:
+            revCnt ^= differs[i]
+            if A[i] == revCnt:
                 if i + K > n:
                     return -1
-                revCnt += 1
+                revCnt ^= 1
                 ans += 1
-                differs[i + K] -= 1
+                differs[i + K] ^= 1
         return ans
 
 
