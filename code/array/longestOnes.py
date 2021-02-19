@@ -12,12 +12,12 @@ class Solution:
                     if not A[tail]:
                         count -= 1
                     tail += 1
-            maxl = max(maxl, head-tail+1)
+            maxl = max(maxl, head - tail + 1)
         return maxl
 
 
 if __name__ == '__main__':
-    A = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
+    A = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1]
     K = 3
     solution = Solution()
     print(solution.longestOnes(A, K))
