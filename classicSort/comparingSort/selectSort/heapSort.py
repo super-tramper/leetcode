@@ -15,7 +15,7 @@ def siftDown(nums, i):
 
 def heapify(nums: List[int]):
     n = len(nums)
-    for i in reversed(range((n - 1) >> 1)):
+    for i in reversed(range(n >> 1)):
         siftDown(nums, i)
 
 
