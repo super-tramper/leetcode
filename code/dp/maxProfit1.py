@@ -4,7 +4,7 @@ def maxProfit_slide(stocks):
     maxProfit = 0
     for i in range(n):
         if stocks[i] < minPrice:
-            minPrice = stocks[i]
+            minPrice = stocks[i]  # 记录第i天时的历史最低股价
         if stocks[i] - minPrice > maxProfit:
             maxProfit = stocks[i] - minPrice
     return maxProfit
@@ -13,10 +13,10 @@ def maxProfit_slide(stocks):
 def maxProfit_dp(stocks):
     n = len(stocks)
     buy = -stocks[0]  # 第一天买入之后账户余额
-    sell = 0  # 第一天买入再卖出后账户余额
+    sell = 0  # 第一天没有操作的账户余额
     for i in range(n):
         buy = max(buy, -stocks[i])  # 前i天内发生买入，账户余额的最大值
-        sell = max(sell, buy + stocks[i])  # 前i天内进行买入后卖出，账户余额的最大值（实际）
+        sell = max(sell, buy + stocks[i])  # 前i天内进行买入后卖出，账户余额的最大值
     return sell
 
 
