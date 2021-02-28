@@ -3,7 +3,13 @@ from typing import List
 
 class Solution:
     def isMonotonic(self, A: List[int]) -> bool:
-        return sorted(A) == A or sorted(A) == A[::-1]
+        asc, des = True, True
+        for i in range(len(A)-1):
+            if A[i] < A[i+1]:
+                des = False
+            if A[i] > A[i+1]:
+                asc = False
+        return des or asc
 
 
 if __name__ == '__main__':
