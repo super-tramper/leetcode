@@ -1,3 +1,7 @@
+"""
+给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是回文。
+返回符合要求的 最少分割次数 。
+"""
 class Solution:
     def minCut(self, s: str) -> int:
         n = len(s)
