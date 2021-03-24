@@ -5,9 +5,8 @@
 链接：https://leetcode-cn.com/problems/132-pattern
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
-"""时间复杂度O(nlogn)"""
+# 时间复杂度O(n),单调栈
 from typing import List
-from sortedcollections import SortedList
 
 
 class Solution:
@@ -16,20 +15,20 @@ class Solution:
         if n < 3:
             return False
 
-        left_min = nums[0]
-        right_list = SortedList(nums[2:])
+        stack = [nums[-1]]
+        max_k = -float("inf")
 
-        for j in range(1,n-1):
-            if left_min < nums[j]:
-                index = right_list.bisect_right(left_min)
-                if index < len(right_list) and right_list[index] < nums[j]:
-                    return True
-            left_min = min(left_min, nums[j])
-            right_list = SortedList(nums[j+1:])
+        for j in range(n-2, -1, -1):
+            if nums[j] < max_k:
+                return True
+            while len(stack) and stack[-1] < nums[j]:
+                max_k = stack.pop()  # 此处更新max_k时，不用将原有值与当前值进行比较，因为栈内的值肯定比栈外的大
+            if max_k < nums[j]:
+                stack.append(nums[j])
         return False
 
 
 if __name__ == '__main__':
-    nums = [-1,3,2,0]
+    nums = [3,1,4,2]
     solution = Solution()
     print(solution.find132pattern(nums))
