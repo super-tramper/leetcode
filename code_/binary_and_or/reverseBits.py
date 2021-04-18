@@ -8,6 +8,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    n =  6
+    n =  1610612736
     solution = Solution()
     print(solution.reverseBits(n))
